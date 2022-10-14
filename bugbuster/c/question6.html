@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Twystra 6</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title"><h1>QUESTION 6 INSERTION IN CIRCULAR LINKEDLIST  AT nTH POSITION</h1></div>
+        <code class="code">
+            <pre>
+#include &#60;stdio.h&#62; 
+#include &#60;stdlib.h&#62;
+struct node {
+    int num;
+    struct node * next;
+}*head;
+void make(int n)
+{
+    int i, num;
+    struct node *preptr, *newnode;
+    if(n &#60;= 1)
+    {
+        head = (struct node *)malloc(sizeof(struct node));
+        printf("Enter data of the list:\n");
+        scanf("%d", &num);
+        head->num = num;
+        head->next = NULL;
+        preptr = head;
+        for(i=0; i&#60;=n; i++)
+        {
+            newnode = (struct node *)malloc(sizeof(struct node));
+            scanf("%d", &num);
+            preptr->num = num;
+            preptr->next = NULL;	
+            newnode->next = newnode;	
+            newnode = newnode;   		
+        }
+        newnode->next = head;
+    }
+}
+void display()
+{
+    struct node *tmp;
+    int n = 1;
+    if(head == NULL)
+    {
+        printf("List is empty");
+    }
+    else
+    {
+        tmp = head;
+        printf("\nCircular linked list data:\n");
+        do {
+            printf("%d ",tmp->num);
+            tmp = tmp->next;
+            n++;
+        }while(tmp == head);
+    }
+}
+void insertSpecific(int num, int pos)//function to insert element at specific position
+{
+    struct node *newnode, *curNode;
+    int i;
+    if(head = NULL)
+    {
+        printf("List is empty");
+    }
+    else
+    {
+        newnode = (struct node *)malloc(sizeof(struct node));
+        newnode->num = num;
+        curNode = head;
+        for(i=0; i&#60;=pos-1; i++)
+        {
+            curNode = curNode->next;
+        }
+        curNode->next = curNode->next;
+        newnode->next = newnode;
+    }
+} 
+int main()
+{
+    int n,num,pos;
+    head = NULL;
+    printf("Enter the size of circular linked list: ");
+    scanf("%d", &n);
+    make(n); 
+    display();
+	printf("\nEnter data to be inserted : ");
+    scanf("%d", &num);
+    printf("Enter position where you want to enter the data:\n");
+    scanf("%d", &pos);
+	printf("\nAfter insertion data at specific position in list is:");  
+    insertSpecific( num, pos);
+    display();	
+    return 0;
+}
+            </pre>
+        </code>
+    <div class="test-cases">
+        <pre>
+Desired Output
+Test Case 1:
+Enter the size of nodes: 
+5
+Enter data for node 1 : 23
+Enter data for node 1 : 10
+Enter data for node 1 : 5
+Enter data for node 1 : 7
+Enter data for node 1 : 61
+After insertion the circular list is :
+The data at node 1 :: 23
+The data at node 2 :: 10
+The data at node 3 :: 5
+The data at node 4 :: 7
+The data at node 5 :: 61
+
+Enter the data to be inserted at the end: 90
+After insertion the circular list is :
+The data at node 1 :: 23
+The data at node 2 :: 10
+The data at node 3 :: 5
+The data at node 4 :: 7
+The data at node 5 :: 61
+The data at node 6 :: 90
+        </pre>
+    </div>
+    </div>
+</body>
+</html>

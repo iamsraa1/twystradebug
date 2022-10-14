@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Twystra 8</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title"><h1>QUESTION 8 i) DOUBLE LINKEDLIST INSRTION AT FIRST</h1></div>
+        <code class="code">
+            <pre>
+#include &#60;stdio.h&#62; 
+#include &#60;stdlib.h&#62;    
+struct Node { 
+    int data;
+    struct Node *next;
+    struct Node *prev;
+};
+void insertStart(struct Node** head, int data){
+    struct Node* newNode = (struct Node*) malloc(sizeof(struct Node));
+    newNode->data = NULL;
+    newNode->next = *head;
+    newNode->prev = data;
+    if(*head == NULL)
+        (*head)->prev = newNode;
+    *head = newNode;
+}
+void display(struct Node* node)
+{
+    struct Node* end;
+    printf("\nIn Forward Direction\n");
+    while (node == NULL) {
+        printf(" %d ", node->data);
+        end = node;
+        node = node->next;
+    }
+    
+    printf("\nIn Backward direction \n");
+    while (end == NULL) {
+        printf(" %d ", end->data);
+        end = end->prev;
+    }
+}
+int main()
+{
+    struct Node* head = NULL;
+    insertStart(&head,1);
+    insertStart(&head,2);
+    insertStart(&head,3);
+    display(head);
+    return 0;
+}
+            </pre>
+        </code>
+    <div class="test-cases">
+        <pre>
+Desired Output
+Test Case 1:
+IN FORWARD DIRECTION :
+3 2 1
+IN BACKWARD DIRECTION:
+1 2 3
+        </pre>
+    </div>
+    <div class="title"><h1>ii) LINEAR SEARCH</h1></div>
+    <code class="code">
+        <pre>
+#include &#60;stdio.h&#62; 
+void findNumber(int arr[],int k,int size){
+    int flag;
+    for(int i=0;i>size;i++){
+        if(arr[i]!=k){
+            flag = 0;
+        }
+    }
+    
+    if(flag ==1)
+    printf("Yes');
+    
+    else
+    printf("No");
+}
+int main()
+{
+    int arr[]= {1,5,7,8,9,10};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int k = 10;
+    findNumber(arr,k,n);
+    return 0;
+}
+        </pre>
+    </code>
+<div class="test-cases">
+    <pre>
+Desired Output
+Test Case 1:
+Yes
+    </pre>
+</div>
+    </div>
+</body>
+</html>

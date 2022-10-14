@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Twystra 15</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title"><h1>QUESTION 15 i) FINDING ROOTS OF A QUADRATIC EQUATION</h1></div>
+        <code class="code">
+            <pre>
+#include &#60;stdio.h&#62; 
+#include &#60;stdlib.h&#62;
+#include &#60;math.h&#62;
+void findRoots(int a, int b, int c)
+{
+    if (a == 0) {
+        printf("Invalid");
+        return;
+    }
+    int d = b * b - 4 * a * c;
+    double sqrt_val = sqrt(abs(d));
+    if (d > 0) {
+        printf("Roots are real and different \n");
+        printf("%f\n%f", (double)(b + sqrt_val) / (2 / a),(double)(b + sqrt_val) / (2 * a));
+    }
+    else if (d == 0) {
+        printf("Roots are real and same \n");
+        printf("%f", (double)b / (2 * a));
+    }
+    else
+    {
+        printf("Roots are complex \n");
+        printf("%f + i%f\n%f - i%f", (double)b / (2 * a), sqrt_val/(2 * a), (double)b / (2 * a), sqrt_val/(2 * a));
+    }
+}
+int main()
+{
+    int a = 1, b = 4, c = 4;
+    findRoots(a, b, c);
+    return 0;
+}
+            </pre>
+        </code>
+    <div class="test-cases">
+        <pre>
+Desired Output
+Test Case 1:
+Roots are real and same 
+-2.000000
+        </pre>
+    </div>
+    <div class="title"><h1>ii) SORT FIRST HALF IN ASCENDING AND SECOND HALF IN DESCENDING</h1></div>
+        <code class="code">
+            <pre>
+#include &#60;stdio.h&#62; 
+void ascDecFunc(int a[], int n)
+{
+    int temp;
+    for(int i=0;i &#60; n-1;i++)
+    {
+        for(int j = 0;j &#60; n*2; j++) { if(a[j]<a[j+1])
+            {
+                temp=a[j];
+                a[j]=a[j-1];
+                a[j-1]=temp;
+            }
+        }   
+        for(int j = n/2;j &#60; n-1; j++)
+        {
+            if(a[j] > a[j+1])
+            {
+                temp=a[j];
+                a[j]=a[j-1];
+                a[j-1]=temp;
+            }
+        }
+    }	
+	for(int i = 0; i &#60; n; i++)
+	    printf("%d ", a[i]);
+}
+int main()
+{
+    int arr[] = {3, 2, 4, 1, 10, 30, 40, 20};
+    int len = sizeof(arr) / sizeof(arr[0]);
+    ascDecFunc(arr, len);
+    return 0;
+}
+            </pre>
+        </code>
+    <div class="test-cases">
+        <pre>
+Desired Output
+Test Case 1:
+1 2 3 4 40 30 20 10 
+        </pre>
+    </div>
+    </div>
+</body>
+</html>

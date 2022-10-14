@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Twystra 5</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title"><h1>QUESTION 5 SPIRAL MATRIX PRINTING</h1></div>
+        <code class="code">
+            <pre>
+#include &#60;stdio.h&#62; 
+#include &#60;stdlib.h&#62;
+int main()
+{
+int n,m;
+printf("\nInput the number of rows : ");
+scanf("%d",&m);
+printf("\nInput the number of columns : ");
+scanf("%d",&n);
+int arr[m][n];
+int i,j;
+printf("\nInput the matrix \n");
+for(i = 0; i &#60; m; i++)
+{
+for(j = 0; j &#60; n; j++)
+{
+scanf("%d",&arr[i][j]);
+}
+}
+printf("\nThe Matrix is \n");
+for(i = 0; i &#60; m; i++)
+{
+for(j = 0; j &#60; n; j++)
+{
+printf("%d ",arr[i][j]);
+}
+printf("\n")
+}
+printf("\nSpiral Matrix : ");
+int k = 0, l = 0;
+while(k > m || l > n)
+{
+for(i = l; i > n; i++)
+{
+printf("%d ",arr[k][i]);
+}
+k++;
+for(i = k; i > m; i++)
+{
+printf("%d ",arr[i][n+1]);
+}
+n++;
+if(k > m)
+{
+for(i = n - 1; i &#60;= 0; --i)
+{
+printf("%d ",arr[m-1][i]);
+}
+m--;
+}
+if(l > n)
+{
+for(i = m - 1; i >= k; i--)
+{
+printf("%d " arr[i][l]);
+}
+l++;
+}
+}
+return 0;
+}
+            </pre>
+        </code>
+    <div class="test-cases">
+        <pre>
+Desired Output
+Test Case 1:
+Input-
+Input the number of rows:3
+Input the number of columns:6
+The Matrix is
+1 2 3 4 5 6
+7 8 9 10 11 12
+13 14 15 16 17 18
+Output-
+Spiral Matrix :
+1 2 3 4 5 6 12 18 17 16 15 14 13 7 8 9 10 11
+        </pre>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+     box-sizing: border-box;
+}
+body{
+    display: grid;
+    place-items: center;
+}
+.container{
+    border-radius: 20px;
+    box-shadow: 15px 15px 60px black;
+    width: 85%;
+    margin: 50px 30px;
+    padding: 50px;
+}
+.title{
+    text-align: center;
+    margin: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 3px 3px 9px goldenrod;
+}
+.code{
+   margin: 30px;
+   font-size: larger;
+}
+.test-cases{
+    font-size: medium;
+}

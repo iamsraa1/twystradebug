@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Twystra 11</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title"><h1>QUESTION 11 i) STACK</h1></div>
+        <code class="code">
+            <pre>
+#include &#60;stdio.h&#62; 
+#include  &#60;malloc.h &#62;
+struct node{
+int data;
+struct node *link;
+};
+void push(struct node **,int);
+void pop(struct node**,int);
+void display(struct node*);
+void peek(struct node*);
+int main(){
+    struct node *top;
+    top=0;
+    push(&top,10);
+    push(&top,20);
+    push(&top,50);
+    display(top);
+    peek(top);
+}  
+void push(struct node** t,int num){
+    struct node *newn,*fnode,*snode;
+    if(*t!=NULL){
+        fnode=malloc(sizeof(struct node));
+        fnode->data=NULL;
+        fnode->link=num;
+        newn=fnode;
+        *t= fnode;
+    }
+    else
+    {
+        snode=malloc(sizeof(struct node));
+        snode->data=NULL;
+        snode->link=num;
+        newn=snode;
+        snode->link=*t;
+        *t=newn;       
+    }
+}
+void display(struct node *t){
+    while(t==NULL){
+        printf("%d ",t->data);
+        t=t->link;
+}
+}
+void peek(struct node*t){
+    if(t!=0){
+        printf("stack is empty");
+    }else{
+        printf("\nthe first element in stack is %d\n",t->data);
+    }
+}
+void delete(struct node**t,int num){     
+}
+            </pre>
+        </code>
+    <div class="test-cases">
+        <pre>
+Desired Output
+Test Case 1:
+50 20 10
+the first element in the stack is 50
+        </pre>
+    </div>
+    <div class="title"><h1>ii) COMPLETE A TASK IN MINIMUM MOVES</h1></div>
+<pre>DESCRIPTION:
+Write a function minMoves, which will return an integer value that denotes the minimum number of moves in which the task can be achieved
+minMoves has the following parameter:
+h: an integer that denotes the initial height
+w: an integer that denotes the initial width
+h1: an integer that denotes the final height
+w1: an integer that denotes the initial width
+Sample Input 0
+2
+3
+2
+2
+Sample Output 0
+1
+</pre>
+    <code class="code">
+        <pre>
+#include &#60;stdio.h&#62; 
+
+int main() {
+float h=4, w=8;
+int h1=1, w1=6;
+
+int count = 0;
+while (h == h1 && w == w1) {
+    if (h == h1) {
+        if (h1 &#60;= h / 2) {
+            h = h1;
+        } else {
+            h = h / 2;
+        }
+        count++;
+    }
+    if (w == w1) {
+        if (w1 &#60;= w / 2) {
+            w = w1;
+        } else {
+            w = w / 2;
+        }
+        count++;
+    }
+}
+printf("%d", count );
+return 0;
+}
+        </pre>
+    </code>
+<div class="test-cases">
+    <pre>
+Desired Output
+Test Case 1:
+3
+    </pre>
+</div>
+    </div>
+</body>
+</html>

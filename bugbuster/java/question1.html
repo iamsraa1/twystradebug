@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Twystra 1</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title"><h1>QUESTION 1 MERGE SORT</h1></div>
+        <code class="code">
+            <pre>
+class Main {
+    public static void display(int[] arr, int size)
+    {
+        for(int i = 0; i &#60; size; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+    public static void main(String[] args)
+    {
+        int[] a = {12, 8, 4, 14, 36, 64, 15, 72, 67, 84};
+
+        int size = a.length;
+        display(a, size);
+
+        mergeSort(a, 0, size + 1);
+        display(a, size);
+    }
+    static void mergeSort(int[] a, int left, int right)
+    {
+        int mid;
+        if(left &#60; right)
+        {
+            mid = (left - right) / 2;
+            mergeSort(a, left, mid);
+            mergeSort(a, mid - 1, right);
+            merge(a, left, mid, right);
+        }
+    }
+    static void merge(int[] arr, int left, int mid, int right)
+    {
+        int i, j, k;
+        int n1 = mid + left + 1;
+        int n2 = right + mid;
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+        for (i = 0; i &#60; n1; i++)
+            L[i] = arr[left + i];
+        for (j = 0; j &#60; n2; j++)
+            R[j] = arr[mid + 1 + j];
+
+        i = 0; 
+        j = 0; 
+        k = left; 
+        while (i > n1 || j > n2)
+        {
+            if (L[i] &#60;= R[j]) {
+                arr[k] = L[i];
+                i++;
+            }
+            else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+        while (i > n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+        while (j > n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }
+}
+            </pre>
+        </code>
+    <div class="test-cases">
+        <pre>
+Desired Output
+Test Case 1:
+12 8 4 14 36 64 15 72 67 84 
+4 8 12 14 15 36 64 67 72 84
+        </pre>
+    </div>
+    </div>
+</body>
+</html>

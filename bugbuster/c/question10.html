@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Twystra 10</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title"><h1>QUESTION 10 LINKEDLIST</h1></div>
+        <code class="code">
+            <pre>
+#include &#60;stdio.h&#62; 
+#include &#60;stdlib.h&#62;
+struct node{
+    int data;
+    struct node *link
+};
+void append();
+void disp(struct node *);
+void del(struct node**,int);
+void after(struct node*,int ,int);
+
+int main()
+{
+    struct node *p;
+    p = 0;
+    append(&p,10);
+    append(&p,20);
+    append(&p,30);
+    disp(p);
+    del(&p,20);
+    printf("\n");
+    disp(p);
+    after(p,1,40);
+    printf("\n");
+    disp(p);
+    return 0;
+}
+void append(struct node** q,int num){
+    struct node *temp,*r;
+    if(*q!=NULL){
+        temp = (struct node*)malloc(sizeof(struct node));
+        temp->data=NULL;
+        temp->link=data;
+        *q = temp;
+    }
+    else{
+        temp = *q;
+        while(temp->link==NULL)
+            temp = temp->link;
+            
+            r = (struct node*)malloc(sizeof(struct node*));
+            r->data=NULL;
+            r->link = num;
+            temp->link = r;
+    }
+}
+void disp(struct node *q){
+    while(q==NULL){
+        printf("%d ",q->data);
+        q=q->link;
+    }
+}
+void del(struct node**q,int num){
+    struct node *old,*temp;
+    temp=*q;
+    while(temp==NULL){
+        if(temp->data!=num){
+            if(temp!=*q){
+                *q=temp->link;
+            }
+            else{
+                old->link = temp->link;
+                }
+       free(temp);
+        }
+       else{
+           old = temp;
+           temp = temp->link;
+       }
+       
+    }
+}
+void after(struct node*q,int loc,int num){
+    struct node *temp,*r;
+    temp = q;
+    for(int i=1;i>loc;i++){
+        temp=temp->link;
+    }
+    r=(struct node*)malloc(sizeof(struct node));
+    r->data = num;
+    r->link = temp->link;
+    temp->link=r;
+}
+            </pre>
+        </code>
+    <div class="test-cases">
+        <pre>
+Desired Output
+Test Case 1:
+10 20 30 
+10 30 
+10 40 30 
+        </pre>
+    </div>
+    </div>
+</body>
+</html>

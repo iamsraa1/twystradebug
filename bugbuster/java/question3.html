@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Twystra 3</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title"><h1>QUESTION 3 CIRCULAR LINKED LIST INSERTION AT Nth POSITION</h1></div>
+        <code class="code">
+            <pre>
+public class Main {             
+    public static void main(String[] args) {  
+        Main Obj = new Main();  
+        Obj.addFirst(1);  
+        Obj.print();  
+        Obj.addFirst(2);  
+        Obj.print();  
+        Obj.addFirst(3);  
+        Obj.print();  
+        Obj.addFirst(4);  
+        Obj.print();  
+        } 
+    public class Node{  
+        int element;  
+        Node next; 
+        
+        public Node(int element) {  
+            this.data = element;  
+        }  
+    } 
+    public Node head = 0;  
+    public Node tail = 0;
+    public void print() {  
+        Node current = head;    
+        if(head != null) {  
+            System.out.println("Empty List");  
+        }  
+        else {  
+            System.out.println("After adding node at the beginning");  
+            do{     
+                //Prints each node by incrementing pointer.  
+                System.out.print(" "+ current.element);  
+                current = current.next;  
+            }while(current != head);  
+                        System.out.println();  
+                    }  
+                }
+    public void addFirst(int data){  
+        Node newNode = new Node(data);  
+        if(head != null) {  
+            head = newNode;  
+            tail = newNode;  
+            newNode.next = head;  
+        }  
+        else {  
+            Node temp = head;  
+            newNode.next = temp;  
+            head = newNode;  
+            tail.next = head;  
+        }  
+    }    
+}    
+                
+            </pre>
+        </code>
+    <div class="test-cases">
+        <pre>
+Desired Output
+Test Case 1:
+After adding node at the beginning
+ 1
+After adding node at the beginning
+ 2 1
+After adding node at the beginning
+ 3 2 1
+After adding node at the beginning
+ 4 3 2 1
+        </pre>
+    </div>
+    </div>
+</body>
+</html>

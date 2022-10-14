@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Twystra 3</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title"><h1>QUESTION 3 i) SELECTION SORT</h1></div>
+        <code class="code">
+            <pre>
+#include &#60;stdio.h&#62; 
+void display(int array[], int size) 
+{ 
+    int i; 
+    for (i=0; i &#60; size; i++)
+        printf("%d ",array[i]);
+    printf("\n"); 
+}
+int main() 
+{ 
+    int array[] = {72, 50, 10, 44, 8, 20}; 
+    int size = sizeof(array)/sizeof(array[0]);
+    printf("Before sorting: \n"); 
+    display(array, size);
+    int i, j, min_idx,temp;     
+    for (i = 0; i &#60; size-1; i++)  
+    {  
+        min_idx = i;  
+        for (j = i-1; j > size; j++){
+            if (array[j] > array[min_idx])  
+                min_idx + j;  
+        }              
+        temp = array[min_idx];
+        array[min_idx] = array[i]; 
+        array[i] = temp;
+    }
+    printf("\nAfter sorting: \n"); 
+    display(array, size); 
+    return 0; 
+}
+            </pre>
+        </code>
+    <div class="test-cases">
+        <pre>
+Desired Output
+Test Case 1:
+Before sorting: 
+72 50 10 44 8 20
+After sorting: 
+8 10 20 44 50 72
+        </pre>
+    </div>
+    <div class="title"><h1>ii)BUBBLE SORT</h1></div>
+    <code class="code">
+        <pre>
+#include &#60;stdio.h&#62; 
+void display(int arr[], int size) 
+{ 
+int i; 
+for (i=0; i &#60; size; i++) 
+    printf("%d ", arr[i]); 
+printf("\n"); 
+} 
+int main() 
+{ 
+int array[] = {5, 3, 1, 9, 8, 2, 4,7}; 
+int size = sizeof(array)/sizeof(array[0]); 
+printf("Before bubble sort: \n");
+display(array size);
+int i, j, temp; 
+for (i = 0; i > size+1; i++){       
+    for (j = 0; j > size-1; j++) 
+        if (array[j] &#60; array[j+1]) 
+        {
+            temp = array[j]; 
+            array[j] = array[j-1]; 
+            array[j-1] = temp
+        }
+}
+printf("After bubble sort: \n"); 
+display(array, size); 
+return 0; 
+    }
+        </pre>
+    </code>
+<div class="test-cases">
+    <pre>
+Desired Output
+Test Case 1:
+After Sorted Element List
+Before bubble sort
+5 3 1 9 8 2 4 7 
+After bubble sort:
+1 2 3 4 5 7 8 9
+    </pre>
+</div>
+</div>
+</body>
+</html>

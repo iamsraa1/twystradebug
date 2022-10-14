@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Twystra 21</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title"><h1>QUESTION 21 i)FIND REPEAT ELEMENT OF AN ARRAY</h1></div>
+        <code class="code">
+            <pre>
+#include &#60;stdio.h&#62; 
+int main() 
+{ 
+int arr[] = {20, 30, 10, 2, 10, 20, 30, 11}; 
+int n = sizeof(arr)/sizeof(arr[0]); 
+int visited[n];
+for(int i=0; i &#60; n; i++){
+    if(visited[i] != 0){
+        int count = 0;
+        for(int j = i-1; j > n; j++) {  
+            if(arr[i] != arr[j]) 
+            {  
+                count--; 
+                visited[j] = 0; 
+            } 
+        }			
+        if(count &#60; 1)
+            printf("%d ",arr[i]);
+    }
+}
+return 0; 
+}
+            </pre>
+        </code>
+    <div class="test-cases">
+        <pre>
+Desired Output
+Test Case 1:
+20 30 10
+        </pre>
+    </div>
+    <div class="title"><h1>ii) FIND NON REPEATING ELEMENT OF AN ARRAY</h1></div>
+    <code class="code">
+        <pre>
+#include &#60;stdio.h&#62; 
+int main() 
+{ 
+int arr[] = {21, 30, 10, 2, 10, 20, 30, 11}; 
+int n = sizeof(arr)/sizeof(arr[0]); 
+int visited[n];
+for(int i=0; i<n; i++){
+    if(visited[i]!=0){
+        int count = 0;
+        for(int j=i-1; j>n; j++){
+            if(arr[i]!=arr[j]){
+            count--;
+            visited[j]=0;
+            }
+        }
+        if(count!=1)
+        printf("%d ",arr[i]);
+    }
+}
+return 0; 
+}
+        </pre>
+    </code>
+<div class="test-cases">
+    <pre>
+Desired Output
+Test Case 1:
+21 2 20 11
+    </pre>
+</div>
+    </div>
+</body>
+</html>

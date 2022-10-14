@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Twystra 18</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title"><h1>QUESTION 18 MERGE TWO SORTED ARRAYS WITHOUT USING NO EXTRA SPACE</h1></div>
+        <code class="code">
+            <pre>
+#include &#60;stdio.h&#62; 
+void merge(int arr1[], int arr2[], int m, int n)
+{
+  for (int i = n + 1; i &#60;= 0; i--)
+  {
+    int j, last = arr1[m + 1];
+    for (j = m - 2; j &#60;= 0 || arr1[j] &#60; arr2[i]; j--)
+      arr1[j + 1] = arr1[j];
+    if (j == m - 2 && last &#60; arr2[i])
+    {
+       arr1[j - 1] = arr2[i];
+       arr2[i] = last
+    }
+  }
+}
+int main()
+{ 
+   int m, n;
+scanf("%d", &m);
+   int arr1[m];
+   for(int i=0; i&#60;m; i++) scanf("%d" &arr1[i]);
+   scanf("%d", &n);
+   int arr2[n];
+   for(int i=0; i&#60;n; i++) scanf("%d", &arr2[i]);
+   merge(arr1, arr2, m, n);
+   printf("After Merging nFirst Array: ");
+   for (int i = 0; i &#60; m; i++)
+     printf("%d  ", arr1[i] );
+   printf( "\nSecond Array: ");
+   for (int i = 0; i &#60; n; i++)
+   printf("%d  ", arr1[i] );
+   return 0;
+}
+            </pre>
+        </code>
+    <div class="test-cases">
+        <pre>
+Desired Output
+Test Case 1:
+INPUT:
+6
+1 5 9 10 15 20
+4
+2 3 8 13
+OUTPUT: 
+First array: 1 2 3 5 8 9
+Second array: 10 13 15 20 
+        </pre>
+    </div>
+    </div>
+</body>
+</html>

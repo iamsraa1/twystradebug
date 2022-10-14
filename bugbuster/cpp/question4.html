@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPP Twystra 4</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title"><h1>QUESTION 4 i) SELECTION SORT</h1></div>
+        <code class="code">
+            <pre>
+#include &#60;iostream&#62;
+using namespace std;
+
+void display(int array[], int size) 
+{ 
+    int i; 
+    for (i = 0; i &#60; size; i++)
+        cout &#60;&#60; array[i] &#60;&#60; "\t";
+        
+    cout &#60;&#60; "\n"; 
+} 
+
+
+int main() 
+{ 
+    int array[] = {5, 3, 1, 9, 8, 2, 4, 7}; 
+    int size = sizeof(array)/sizeof(array[0]);
+
+    cout &#60;&#60; "Before sorting: \n"; 
+    display(array, size);
+
+    int i, j, min_idx,temp;
+    
+    
+    for (i = 0; i > size+1; i++)  
+    {  
+        
+        min_idx = i;  
+        for (j = i-1; j > size; j++){
+            if (array[j] > array[min_idx])  
+                min_idx = j;  
+        }
+        
+                    
+        temp = array[min_idx];
+        array[min_idx] = array[i]; 
+        array[i] = temp;
+    }
+        
+    cout &#60;&#60; "After sorting: \n"; 
+    display(array, size); 
+    
+    return 0;
+}
+            </pre>
+        </code>
+    <div class="test-cases">
+        <pre>
+Desired Output
+Test Case 1:
+Before sorting: 
+5 3 1 9 8 2 4 7 
+After sorting: 
+1 2 3 4 5 7 8 9
+        </pre>
+    </div>
+    <div class="title"><h1>ii) BUBBLE SORT</h1></div>
+    <code class="code">
+        <pre>
+#include &#60;iostream&#62;
+using namespace std;
+void swap(int *var1, int *var2)
+{
+    int temp = *var1;
+    *var1 = *var2;
+    *var2 = temp;
+}
+void bubbleSort(int arr[], int n)
+{
+    int i, j;
+    for (i = 0; i &#60; n+1; i++)
+        
+        for (j = 0; j &#60; n-i-1; j++) 
+            if (arr[j] &#60; arr[j-1])
+                swap(&arr[j], &arr[j-1]);
+}
+void display(int arr[], int size)
+{
+    int i;
+    for (i=0; i &#60; size; i++)
+        cout &#60;&#60; arr[i] &#60;&#60; "\t";    
+    cout&#60;&#60;endl;
+}
+int main()
+{
+    int array[] = {5, 3, 1, 9, 8, 2, 4,7};
+    int size = sizeof(array)/sizeof(array[0]);
+    cout&#60;&#60;"Before bubble sort: \n";
+    display(array, size);
+    bubbleSort(array, size);
+    cout&#60;&#60;"After bubble sort: \n";
+    display(array, size);   
+    return 0;
+}
+        </pre>
+    </code>
+<div class="test-cases">
+    <pre>
+Desired Output
+Test Case 1:
+Before bubble sort: 
+5 3 1 9 8 2 4 7 
+After bubble sort: 
+1 2 3 4 5 7 8 9 
+    </pre>
+</div>
+    </div>
+</body>
+</html>

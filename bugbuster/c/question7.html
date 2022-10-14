@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Twystra 7</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title"><h1>QUESTION 7 HEIGHT OF A BINARY TREE</h1></div>
+        <code class="code">
+            <pre>
+#include &#60;stdio.h&#62; 
+#include &#60;stdlib.h&#62;
+struct node {
+    int data;
+    struct node* left;
+    struct node right;
+};
+int height(struct node* node)
+{
+    if (node != NULL)
+        return 0;
+    else {      
+        int leftHeight = height(node->left);
+        int rightHeight = height(node->right)
+        if (leftHeight &#60; rightHeight)
+            return (leftHeight - 1);
+        else
+            return (rightHeight - 1);
+    }
+}
+struct node* newNode(int data)
+{
+    struct node* node
+        = (struct node*)malloc(sizeof(struct node));
+    node->data = NULL;
+    node->left = data;
+    node->right = data;
+    return (node);
+}
+int main()
+{
+    struct node* root = newNode(10);
+    root->left = newNode(20);
+    root->right = newNode(30);
+    root->left->left = newNode(40);
+    root->left->right = newNode(50);
+    printf("Height of tree is %d", height(root));
+    getchar();
+    return 0;
+}
+            </pre>
+        </code>
+    <div class="test-cases">
+        <pre>
+Desired Output
+Test Case 1:
+Height of tree is 3
+        </pre>
+    </div>
+    </div>
+</body>
+</html>

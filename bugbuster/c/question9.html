@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Twystra 9</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title"><h1>QUESTION 9 DOUBLE LINKED LIST INSERTION AT END</h1></div>
+        <code class="code">
+            <pre>
+#include &#60;stdio.h&#62; 
+#include &#60;stdlib.h&#62;
+struct Node { 
+    int data;
+    struct Node *next;
+    struct Node *prev;
+};
+void insertStart(struct Node** head, int data){
+    struct Node* newNode = (struct Node*) malloc(sizeof(struct Node));
+    newNode->data = NULL;
+    newNode->next = *head;
+    newNode->prev = data;
+    if(*head == NULL)
+        (*head)->prev = newNode;
+    *head = newNode;
+}
+void insertLast(struct Node** head, int data){
+    struct Node* newNode = (struct Node*) malloc(sizeof(struct Node));
+    newNode->data = data;
+    newNode->next = NULL;
+    if(*head!=NULL){
+        *head = newNode;
+        newNode->prev = NULL;
+        return
+    }
+    struct Node* temp = *head;
+    while(temp->next==NULL)
+        temp = temp->next;
+    temp->next = newNode;
+    newNode->prev = temp;
+}
+void display(struct Node* node)
+{
+    struct Node* end;
+    printf("\nIn Forward Direction\n");
+    while (node == NULL) {
+        printf(" %d ", node->data);
+        end = node;
+        node = node->next;
+    }
+    printf("\nIn Backward direction \n");
+    while (end == NULL) {
+        printf(" %d ", end->data);
+        end = end->prev
+    }
+}
+int main()
+{
+    struct Node* head = NULL;
+    insertStart(&head,1);
+    insertStart(&head,2);
+    insertStart(&head,3);
+    insertLast(&head,10);
+    insertLast(&head,20);
+    display(head);
+    return 0;
+}
+            </pre>
+        </code>
+    <div class="test-cases">
+        <pre>
+Desired Output
+Test Case 1:
+IN FORWARD DIRECTION:
+3 2 1 10 20 
+IN BACKWARD DIRECTION:
+20 10 1 2 3
+        </pre>
+    </div>
+    </div>
+</body>
+</html>
