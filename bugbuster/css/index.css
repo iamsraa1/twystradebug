@@ -12,6 +12,7 @@ body{
     width: 85%;
     margin: 50px 30px;
     padding: 50px;
+    position: relative;
 }
 .title{
     text-align: center;
@@ -35,7 +36,7 @@ body{
 button{
     position: absolute;
     right: 100px;
-    box-shadow: 1px 10px 15px red;
+    box-shadow: 1px 10px 20px red;
     border-radius: 10px;
     padding: 10px;
     cursor: pointer ;
