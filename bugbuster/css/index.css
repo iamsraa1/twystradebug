@@ -32,3 +32,11 @@ body{
 .test-cases{
     font-size: medium;
 }
+button{
+    position: absolute;
+    right: 100px;
+    box-shadow: 1px 10px 15px red;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer ;
+}
