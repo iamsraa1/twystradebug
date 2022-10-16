@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C Twystra 20</title>
     <link rel="stylesheet" href="../css/index.css">
+    <script src="../css/index.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="title"><h1>QUESTION 20 MEDIAN OF TWO SORTED ARRAYS OF EQUAL SIZES</h1></div>
-        <code class="code">
+        <button onclick="copyToClipboard()"><img src="../css/copy.png" alt="copy img" width="30"></button>
+        <code class="code" id="item-to-copy">
             <pre>
 #include &#60;stdio.h&#62; 
 int getMedian(int ar1[], int ar2[] int n)
